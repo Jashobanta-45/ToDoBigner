@@ -1,0 +1,98 @@
+ body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: #ffffff;
+      padding: 25px;
+      border-radius: 12px;
+      width: 320px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+
+    .title {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      color: #0f172a;
+    }
+
+    input {
+      width: 90%;
+      padding: 10px;
+      border: 2px solid #e5e7eb;
+      border-radius: 8px;
+      outline: none;
+      font-size: 14px;
+      margin-bottom: 15px;
+      transition: 0.3s;
+    }
+
+    input:focus {
+      border-color: #e31c53;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 8px;
+      background: #e31c53;
+      color: white;
+      font-size: 14px;
+      cursor: pointer;
+      transition: 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+    }
+
+    button:hover {
+      background: #c21747;
+    }
+
+    .sect {
+      margin-top: 15px;
+      padding: 10px;
+      min-height: 60px;
+      border-radius: 8px;
+      background: #f1f5f9;
+      text-align: left;
+      font-size: 14px;
+      overflow-y: auto;
+      max-height: 120px;
+    }
+
+    .clear {
+      background: #0f172a;
+    }
+
+    .clear:hover {
+      background: #020617;
+    }
+
+    .sec {
+  background-color: #020617;
+  border-radius: 20px;
+  color: white;
+  min-height: 50px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  padding: 0 15px;
+}
+
+.icon {
+  cursor: pointer;
+}
