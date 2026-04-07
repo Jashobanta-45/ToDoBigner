@@ -1,54 +1,40 @@
 import { Save, Trash2 } from "lucide-react";
 import React, { useEffect, useState } from "react";
+import DateTime from "./DateTime";
+
+const TODODATA = "localData";
 const Todo = () => {
   const [input, setinput] = useState("");
-  const [task, settask] = useState([]);
-const [dateTime, setdateTime] = useState("")
+const [task, setTask] = useState(() => {
+    const rawData = localStorage.getItem(TODODATA);
+    if (!rawData) return [];
+    return JSON.parse(rawData);
+  });
   const onSubmitHandle = (e) => {
     e.preventDefault();
     if (!input)return 
     if (input.trim() == "") return;
-    settask((prevTask)=>[...prevTask,input]);
+    setTask((prevTask)=>[...prevTask,input]);
     setinput(" ");
   };
    //cear call
    const clearAll=()=>{
-     settask([])
+     setTask([])
    }
    //delet(
    const deletItem=(value)=>{
       let updateTask = task.filter((curElem)=>curElem !== value)
-      settask(updateTask)
+      setTask(updateTask)
    }
-      
-
-  //date and time
-
-  // setInterval(() => {
-  //   const time = new Date();
-  // const loccaltime = time.toLocaleTimeString();
-  // const nowDate = time.toLocaleDateString();
-  //    setdateTime(`${loccaltime} - ${nowDate}`)
-  // }, 1000);
-  
-  // or
+       
+  // LOcal Storage
   useEffect(() => {
-    const interval = setInterval(() => {
-    const time = new Date();
-  const loccaltime = time.toLocaleTimeString();
-  const nowDate = time.toLocaleDateString();
-     setdateTime(`${loccaltime} - ${nowDate}`)
-  }, 1000);
-
-  return ()=> clearInterval(interval)
-  }, [])
-  
+    localStorage.setItem(TODODATA, JSON.stringify(task));
+  }, [task]);
   
   return (
     <div className="container">
-      <div className="title">
-        {dateTime}
-      </div>
+      <DateTime/>
       <form onClick={onSubmitHandle}>
         <input
           type="text"
